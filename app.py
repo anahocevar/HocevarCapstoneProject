@@ -24,7 +24,7 @@ def bkapp_page():
     ###-----------------------------------------------------------------------###
 
     ### Load dataset rat interventions
-    bait_interventions_to_save = pd.read_pickle('development/bait_interventions_to_save_pitch_night.pickle')
+    bait_interventions_to_save = pd.read_pickle('bait_interventions_to_save_pitch_night.pickle')
     ### Load indices of rows for each month for bait dataset
     indices_bait_df = pd.read_pickle('development/indices_bait_df_pitch_night.pickle')    #has 2 columns: 'from_index' and 'to_index'
     ### Load dataset rat sighting
