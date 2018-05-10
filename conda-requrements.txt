@@ -1,7 +1,0 @@
-bokeh=0.12.15=pyh8da4227_0
-flask=0.12.2=py36hb24657c_0
-geopandas=0.3.0=py36h2f9c1c0_0
-numpy=1.14.2=py36_blas_openblas_200
-pandas=0.22.0=py36_0pandas
-pickleshare=0.7.4=py36_0
-python-dateutil=2.7.2=py_0
