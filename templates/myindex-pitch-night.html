@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TDI Capstone Project">
+    <meta name="author" content="Ana Hocevar">
+
+    <title>Rat Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+      
+    <!-- Custom fonts for this template -->
+    <link href="{{url_for('static', filename = 'vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename = 'css/grayscale.min.css')}}" rel="stylesheet">
+      
+    <!-- Bokeh -->
+    <link
+    href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css"
+    rel="stylesheet" type="text/css">
+    <link
+        href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css"
+        rel="stylesheet" type="text/css">
+    <link
+        href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.css"
+        rel="stylesheet" type="text/css">
+
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.js"></script>  
+
+      {{script|safe}}
+      {{the_script_zips|safe}}
+      {{the_script_hm|safe}}
+      
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">NYC Rats</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#predict">Predict!</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#hm">Heatmaps</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#zipcodes">ZIPCODES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>  
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead" style="background: url({{url_for('static', filename = 'img/rat-bg.jpg')}}) no-repeat bottom center scroll">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">NYC Rats</h1>
+              <p class="intro-text">
+                <h4>Lookup reported rat sightings <br>
+                and check predictions</h4> 
+              <a href="#predict" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Predict Section -->
+    <section id="predict" class="download-section content-section text-center">
+        Lookup any NYC location and date and get information about rat sightings and rat interventions since 2010 <br>
+        until today. Slide into the future and get predictions of future rat sighings in the upcoming months.<br><br><br>
+        
+      <div class="container">
+        {{div|safe}}
+      </div>
+    </section>
+      
+          <!-- Heatmap Section -->
+    <section id="hm" class="download-section content-section text-center">
+        <h2>heatmaps: sightings by zipcode</h2>
+        Lookup any past date and get a heatmap showing the amount of monthly rat sightings. <br><br><br>
+        
+      <div class="container" align="center">
+        {{the_div_hm|safe}}
+      </div>
+    </section>
+    
+    <!-- by zipcodes Section -->
+    <section id="zipcodes" class="download-section content-section text-center">
+        <h2>Differences between zipcodes</h2>
+        On average there are more interventions in neighborhoods with more rat sightings. A linear regression fit that models the data best yields that on average a given zipcode <br>
+        with additional 100 rat sightings per year, has around 200 additional interventions per year. However some zipcodes are underserved with interventions. The following plots <br>
+        show how the number of rat interventions compares to the number of rat sightings in each NYC zipcode. A couple Bronx zipcodes particularly stand out (shades of blue) as <br>
+        well as a couple of Brooklyn zipcodes (dark pink) - while these zipcodes have comparable numbers of rat sightings, some Bronx zip codes receive up to 6 times more inspections.<br><br><br>
+        
+      <div class="container">
+        {{the_div_zips|safe}}
+      </div>
+    </section>
+
+            
+    <!-- About Section -->
+    <section id="about" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>about NYC Rats Project</h2>
+            Rats are a large problem in New York City. They present a health threat, can contaminate food, spread diseases and reduce quality of life. They can also damage utilities and contribute to the erosion of buildings’ structural integrity. In the last years the rat population in the city increased as New Yorkers logged more than 17,200 sightings in 2016, up from 12,600 in 2014. In an attempt to reduce the number of NYC rats mayor Bill de Blasio just last year declared to dedicate <a href="https://www.nytimes.com/2017/07/12/nyregion/new-york-city-rat-problem.html">$32 million </a> to fight the most problematic rat areas in the city. <br>
+<br>
+'NYC Rats' is the capstone project I am focusing on as a fellow at The Data Incubator. In the project I am exploring rat sightings across New York City reported via the 311 system. I have a dataset that contains reported rat sightings since 2010 until today (in total around 110 000 logged events) and a dataset that contains rodent interventions/inspections in the city, also since 2010 until today (in total around 1.4 million logged events). This totals to around half of a gigabytes of data. Both datasets (among other things) contain locations of a sighting or intervention, time of event and type. <br><br>
+
+              I am making predictions using time series forecasting with <a href="https://facebook.github.io/prophet/" target="_blank">Facebook Prophet.</a>  <br><br>
+              
+Rat sightings dataset can be found here: <a href="https://nycopendata.socrata.com/Social-Services/Rat-Sightings/3q43-55fe/data" target="_blank">Rat sightings</a> 
+<br>
+Rodent interventions/inspections dataset can be found here: <a href="https://data.cityofnewyork.us/Health/Rodent-Inspection/p937-wjvj" target="_blank">Rodent interventions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact Section</h2>
+            <ul class="list-inline banner-social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/ana-hocevar-522735a7/" class="btn btn-default btn-lg">
+                  <i class="fa fa-linkedin-square fa-fw"></i>
+                  <span class="network-name">Linkedin</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/anahocevar/HocevarCapstoneProject" class="btn btn-default btn-lg">
+                  <i class="fa fa-github fa-fw"></i>
+                  <span class="network-name">Github</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://twitter.com/ahocevara" class="btn btn-default btn-lg">
+                  <i class="fa fa-twitter fa-fw"></i>
+                  <span class="network-name">Twitter</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; NYC Rats Project 2018</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{url_for('static', filename = 'vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{url_for('static', filename = 'vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{{url_for('static', filename = 'js/grayscale.min.js')}}"></script>
+
+  </body>
+
+</html>
