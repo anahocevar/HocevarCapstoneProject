@@ -8,7 +8,6 @@ from bokeh.palettes import brewer
 
 import datetime as dt
 import pandas as pd
-import geopandas as gpd
 import numpy as np
 import pickle
 
@@ -51,6 +50,10 @@ def bkapp_page():
     with open('development/timepoints_pitch_night.pickle', "rb") as f:
         timepoints = pickle.load(f)
     timepoints = timepoints[:-1]
+    
+    ### list of zipcodes in dataset
+    with open('development/all_zips.pickle', "rb") as f:
+        all_zips = pickle.load(f)
     
     ### Read predicted months
     with open('development/predicted_months_pitch_night.pickle', "rb") as f:
@@ -168,7 +171,6 @@ def bkapp_page():
     
     
     ### Add a Zip Code selection option
-    all_zips = ["all zipcodes"] + [*(nyc_df['ZIPCODE'].unique())]  
     zip_select = Select(title="Selected Zipcode:", value="all zipcodes", options= all_zips)
     
     
