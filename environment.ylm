@@ -1,7 +1,0 @@
-name: pydata_test
-dependencies:
-- bokeh=0.12.15
-- flask=0.12.2
-- pandas=0.22.0
-- pickleshare=0.7.4
-- python-dateutil=2.7.2
