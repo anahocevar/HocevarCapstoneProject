@@ -1,7 +1,0 @@
-pandas
-bokeh
-dill
-flask
-pip
-geopandas
-numpy
